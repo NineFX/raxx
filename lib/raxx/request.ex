@@ -44,7 +44,7 @@ defmodule Raxx.Request do
           method: method,
           mount: [binary],
           path: [binary],
-          path_raw: binary | nil,
+          raw_path: binary | nil,
           query: binary | nil,
           headers: Raxx.headers(),
           body: Raxx.body()
@@ -55,7 +55,7 @@ defmodule Raxx.Request do
             method: nil,
             mount: [],
             path: [],
-            path_raw: nil,
+            raw_path: nil,
             query: nil,
             headers: [],
             body: nil
