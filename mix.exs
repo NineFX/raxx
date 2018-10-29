@@ -29,7 +29,9 @@ defmodule Raxx.Mixfile do
       {:eex_html, "~> 0.1.1"},
       {:dialyxir, "~> 0.5", only: [:dev, :test], runtime: false},
       {:benchee, "~> 0.13.2", only: :dev},
-      {:ex_doc, ">= 0.0.0", only: :dev}
+      {:ex_doc, ">= 0.0.0", only: :dev},
+      {:excoveralls, "~> 0.10.2", only: :test},
+      {:credo, "~> 0.10.0", only: [:dev, :test], runtime: false}
     ]
   end
 
