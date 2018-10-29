@@ -12,6 +12,7 @@ defmodule Raxx.Mixfile do
       elixirc_options: [
         warnings_as_errors: true
       ],
+      test_coverage: [tool: ExCoveralls],
       description: description(),
       docs: [extras: ["README.md"], main: "readme"],
       package: package()

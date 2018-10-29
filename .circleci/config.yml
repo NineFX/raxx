@@ -76,7 +76,7 @@ jobs:
       - run: mix local.hex --force
       - run: mix local.rebar --force
       - attach_workspace:
-          at: /home/circleci/raXX
+          at: /home/circleci/raxx
       - run:
           name: Formatter
           command: mix format --check-formatted
