@@ -46,7 +46,7 @@ jobs:
       - run: mix local.hex --force
       - run: mix local.rebar --force
       - attach_workspace:
-          at: /home/circleci/ace
+          at: /home/circleci/raxx
       - run:
           name: Test Coverage
           command: mix coveralls.html
@@ -76,7 +76,7 @@ jobs:
       - run: mix local.hex --force
       - run: mix local.rebar --force
       - attach_workspace:
-          at: /home/circleci/raxx
+          at: /home/circleci/raXX
       - run:
           name: Formatter
           command: mix format --check-formatted
@@ -116,7 +116,7 @@ jobs:
       - run: mix local.hex --force
       - run: mix local.rebar --force
       - attach_workspace:
-          at: /home/circleci/ace
+          at: /home/circleci/raxx
       - run:
           name: Xref
           command: mix compile.xref --warnings-as-errors
