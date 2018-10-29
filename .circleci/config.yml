@@ -2,7 +2,7 @@ defaults: &defaults
   shell: /bin/sh
   working_directory: /home/circleci/raxx
   docker:
-    - image: circleci/elixir
+    - image: elixir
       environment:
         MIX_ENV: test
 
