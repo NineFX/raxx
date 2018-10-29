@@ -12,8 +12,7 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - run: mix local.hex --force
-      - run: mix local.rebar --force
+      - run: mix local.hex --force && mix local.rebar --force
       - restore_cache:
           keys:
             - deps-cache-{{ checksum "mix.lock" }}
@@ -24,7 +23,7 @@ jobs:
           key: deps-cache-{{ checksum "mix.lock" }}
           paths: "deps"
       - persist_to_workspace:
-          root: .
+          root: /home/circleci/raxx
           paths:
             - _build
             - deps
@@ -33,8 +32,7 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - run: mix local.hex --force
-      - run: mix local.rebar --force
+      - run: mix local.hex --force && mix local.rebar --force
       - attach_workspace:
           at: /home/circleci/raxx
       - run: mix credo -a || true
@@ -59,8 +57,7 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - run: mix local.hex --force
-      - run: mix local.rebar --force
+      - run: mix local.hex --force && mix local.rebar --force
       - attach_workspace:
           at: /home/circleci/raxx
       - run:
@@ -73,8 +70,7 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - run: mix local.hex --force
-      - run: mix local.rebar --force
+      - run: mix local.hex --force && mix local.rebar --force
       - attach_workspace:
           at: /home/circleci/raxx
       - run:
@@ -85,8 +81,7 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - run: mix local.hex --force
-      - run: mix local.rebar --force
+      - run: mix local.hex --force && mix local.rebar --force
       - attach_workspace:
           at: /home/circleci/raxx
       - run:
@@ -98,8 +93,7 @@ jobs:
     resource_class: xlarge
     steps:
       - checkout
-      - run: mix local.hex --force
-      - run: mix local.rebar --force
+      - run: mix local.hex --force && mix local.rebar --force
       - attach_workspace:
           at: /home/circleci/raxx
       - run:
@@ -113,8 +107,7 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - run: mix local.hex --force
-      - run: mix local.rebar --force
+      - run: mix local.hex --force && mix local.rebar --force
       - attach_workspace:
           at: /home/circleci/raxx
       - run:
