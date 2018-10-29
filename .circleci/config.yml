@@ -2,7 +2,7 @@ defaults: &defaults
   shell: /bin/sh
   working_directory: /home/circleci/raxx
   docker:
-    - image: elixir
+    - image: elixir:latest-alpine
       environment:
         MIX_ENV: test
 
@@ -41,8 +41,7 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - run: mix local.hex --force
-      - run: mix local.rebar --force
+      - run: mix local.hex --force && mix local.rebar --force
       - attach_workspace:
           at: /home/circleci/raxx
       - run:
@@ -52,19 +51,6 @@ jobs:
           path: cover/excoveralls.html
       - store_test_results:
           path: _build/test/junit
-
-  docs:
-    <<: *defaults
-    steps:
-      - checkout
-      - run: mix local.hex --force && mix local.rebar --force
-      - attach_workspace:
-          at: /home/circleci/raxx
-      - run:
-          name: Build Docs
-          command: mix docs
-      - store_artifacts:
-          path: doc
 
   format:
     <<: *defaults
@@ -120,9 +106,6 @@ workflows:
     jobs:
       - build
       - lint:
-          requires:
-            - build
-      - docs:
           requires:
             - build
       - test:
